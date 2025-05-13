@@ -38,8 +38,8 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local:
     Ejecuta el siguiente comando para obtener el código del proyecto:
 
     ```bash
-    git clone git@github.com:CodeArts-Solutions/koala-B-Museo-Cartuja.git
-    cd koala-B-Museo-Cartuja
+    git clone git@github.com:adrianmonserrat/FP_TCG.git
+    cd FP_TCG
     ```
 
 2.  **Levantar los Contenedores**
