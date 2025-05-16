@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../navbar/navbar.component'; // Importa el NavbarComponent
+import { NavbarComponent } from '../navbar/navbar.component'; // Asegúrate de que la ruta sea correcta
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule, NavbarComponent], // Añade NavbarComponent aquí
+  imports: [CommonModule, NavbarComponent], // Agrega NavbarComponent aquí
   templateUrl: './landing.component.html',
 })
-export class LandingComponent {
-  // Aquí va la lógica del componente
-}
+export class LandingComponent {}
