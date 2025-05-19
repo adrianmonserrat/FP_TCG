@@ -4,16 +4,22 @@ module.exports = {
     "./src/**/*.{html,ts}", // detecta los ficheros donde Tailwind debe buscar clases
   ],
   theme: {
-    extend: {
-      colors: {
-        primary: '#1D4ED8',    // Azul personalizado
-        secondary: '#9333EA',  // Morado personalizado
-        accent: '#F59E0B',     // Amarillo acento
-      },
-      fontFamily: {
-        sans: ['Poppins', 'sans-serif'], // Fuente predeterminada
-      },
-    },
+// ...existing code...
+extend: {
+  colors: {
+    primary: '#1D4ED8',
+    secondary: '#9333EA',
+    accent: '#F59E0B',
+  },
+  fontFamily: {
+    sans: ['Poppins', 'sans-serif'],
+  },
+  backgroundImage: {
+    'jafar': "url('/return_of_jafar.webp')", // barra inicial para public
+  },
+},
+// ...existing code...
+    
   },
   plugins: [],
 }
