@@ -1,0 +1,23 @@
+<div class="flex items-center justify-center min-h-screen bg-jafar bg-cover bg-center">
+  <div class="bg-white p-8 rounded shadow-md w-96">
+    <h2 class="text-2xl font-semibold mb-4 text-center">Iniciar Sesión</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-4">
+        <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Usuario:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Usuario">
+      </div>
+      <div class="mb-6">
+        <label for="password" class="block text-gray-700 text-sm font-bold mb-2">Contraseña:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Contraseña">
+      </div>
+      <div class="flex items-center justify-between">
+        <button class="bg-violet-800 hover:bg-violet-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+          Iniciar Sesión
+        </button>
+        <a class="inline-block align-baseline font-bold text-sm text-violet-800 hover:text-violet-500" href="#">
+          ¿Olvidaste tu contraseña?
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,3 @@
-// filepath: /home/adrianmonserrat/Escritorio/FP_TCG/angular-frontend/src/app/app.component.ts
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
