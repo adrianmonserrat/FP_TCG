@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router'; // Import RouterModule
 
 @Component({
-  selector: 'app-navbar', // Selector corregido
+  selector: 'app-navbar',
   standalone: true,
-  imports: [CommonModule], // Importa CommonModule
-  templateUrl: './navbar.component.html', // Apunta a su propio HTML
+  imports: [CommonModule, RouterModule], // Add RouterModule to imports
+  templateUrl: './navbar.component.html',
 })
 export class NavbarComponent {
-  // Aquí va la lógica del componente
 }
