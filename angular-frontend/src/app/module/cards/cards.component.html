@@ -1,13 +1,32 @@
-  <app-navbar></app-navbar>
+<app-navbar></app-navbar>
 <div class="container mx-auto py-8">
+  <div class="flex justify-between items-center mb-4">
+    <h1 class="text-2xl text-white bg-violet-800">Lista de Cartas</h1>
+    <div>
+      <button (click)="setSortBy('card_number')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+        Número
+      </button>
+      <button (click)="setSortBy('life')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+        Vida
+      </button>
+      <button (click)="setSortBy('lore_point')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+        Lore
+      </button>
+      <button (click)="setSortBy('attack')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Ataque
+      </button>
+    </div>
+  </div>
   <section class="mt-8">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <div *ngFor="let carta of cartas" class="bg-white rounded-lg shadow-md p-4">
-        <img [src]="carta.imagen" alt="{{ carta.nombre }}" class="rounded-lg mb-2">
-        <h2 class="text-xl font-semibold mb-2">{{ carta.nombre }}</h2>
-        <p class="text-gray-700">Coste: {{ carta.coste }}</p>
-        <p class="text-gray-700">Ataque: {{ carta.ataque }}</p>
-        <p class="text-gray-700">Defensa: {{ carta.defensa }}</p>
+        <img [src]="carta.img_card" alt="{{ carta.name }}" class="rounded-lg mb-2">
+        <h2 class="text-xl font-semibold mb-2">{{ carta.name }}</h2>
+        <p class="text-gray-700">Coste: {{ carta.cost }}</p>
+        <p class="text-gray-700">Ataque: {{ carta.attack }}</p>
+        <p class="text-gray-700">Vida: {{ carta.life }}</p>
+        <p class="text-gray-700">Lore: {{ carta.lore_point }}</p>
+        <p class="text-gray-700">Número: {{ carta.card_number }}</p>
       </div>
     </div>
   </section>

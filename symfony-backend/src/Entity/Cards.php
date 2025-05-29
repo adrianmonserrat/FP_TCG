@@ -42,25 +42,7 @@ class Cards
     private ?string $img_card = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $type_card = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $tag_type = null;
-
-    #[ORM\Column(length: 20)]
     private ?string $card_number = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $dlc = null;
-
-    #[ORM\Column]
-    private ?int $maximum_copies = null;
-
-    #[ORM\Column]
-    private ?int $colors_number = null;
-
-    #[ORM\Column(length: 85)]
-    private ?string $tag_color_card = null;
 
     public function getId(): ?int
     {
@@ -175,30 +157,6 @@ class Cards
         return $this;
     }
 
-    public function getTypeCard(): ?string
-    {
-        return $this->type_card;
-    }
-
-    public function setTypeCard(string $type_card): static
-    {
-        $this->type_card = $type_card;
-
-        return $this;
-    }
-
-    public function getTagType(): ?string
-    {
-        return $this->tag_type;
-    }
-
-    public function setTagType(string $tag_type): static
-    {
-        $this->tag_type = $tag_type;
-
-        return $this;
-    }
-
     public function getCardNumber(): ?string
     {
         return $this->card_number;
@@ -207,54 +165,6 @@ class Cards
     public function setCardNumber(string $card_number): static
     {
         $this->card_number = $card_number;
-
-        return $this;
-    }
-
-    public function getDlc(): ?string
-    {
-        return $this->dlc;
-    }
-
-    public function setDlc(string $dlc): static
-    {
-        $this->dlc = $dlc;
-
-        return $this;
-    }
-
-    public function getMaximumCopies(): ?int
-    {
-        return $this->maximum_copies;
-    }
-
-    public function setMaximumCopies(int $maximum_copies): static
-    {
-        $this->maximum_copies = $maximum_copies;
-
-        return $this;
-    }
-
-    public function getColorsNumber(): ?int
-    {
-        return $this->colors_number;
-    }
-
-    public function setColorsNumber(int $colors_number): static
-    {
-        $this->colors_number = $colors_number;
-
-        return $this;
-    }
-
-    public function getTagColorCard(): ?string
-    {
-        return $this->tag_color_card;
-    }
-
-    public function setTagColorCard(string $tag_color_card): static
-    {
-        $this->tag_color_card = $tag_color_card;
 
         return $this;
     }

@@ -1,4 +1,3 @@
-// filepath: /home/adrianmonserrat/Escritorio/Proyecto_album_TCG/angular-frontend/src/app/module/cards/cards.service.ts
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
