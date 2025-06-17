@@ -24,10 +24,10 @@ export class AppComponent implements OnInit {
     this.authService.checkAuth().subscribe(
       (response) => {
         this.message = response.message;  // 'Usuario autenticado' o 'No estás autenticado'
-      },
+      },/*
       (error) => {
         this.message = 'No estás autenticado';
-      }
+      }*/
     );
   }
 }

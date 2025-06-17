@@ -19,14 +19,29 @@
   </div>
   <section class="mt-8">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      <div *ngFor="let carta of cartas" class="bg-white rounded-lg shadow-md p-4">
-      <img [src]="'/cards/' + carta.img_card" alt="{{ carta.name }}" class="rounded-lg mb-2">
-        <h2 class="text-xl font-semibold mb-2">{{ carta.name }}</h2>
-        <p class="text-gray-700">Coste: {{ carta.cost }}</p>
-        <p class="text-gray-700">Ataque: {{ carta.attack }}</p>
-        <p class="text-gray-700">Vida: {{ carta.life }}</p>
-        <p class="text-gray-700">Lore: {{ carta.lore_point }}</p>
-        <p class="text-gray-700">Número: {{ carta.card_number }}</p>
+      <div 
+        *ngFor="let carta of cartas"
+        class="relative bg-white rounded-lg shadow-md p-4 cursor-pointer"
+        (click)="carta.selected = !carta.selected"
+      >
+        <img 
+          [src]="'assets/lorcana_cards/' + carta.img" 
+          [alt]="carta.name" 
+          class="rounded-lg mb-2 w-full h-80 object-contain transition-opacity duration-300"
+          [ngClass]="{ 'opacity-40': carta.selected }"
+        />
+        <!-- Capa opaca con los datos -->
+        <div 
+          *ngIf="carta.selected"
+          class="absolute inset-0 bg-black bg-opacity-80 flex flex-col justify-center items-center text-white rounded-lg transition-opacity duration-300"
+        >
+          <h2 class="text-xl font-semibold mb-2">{{ carta.name }}</h2>
+          <p>Coste: {{ carta.cost }}</p>
+          <p>Ataque: {{ carta.attack }}</p>
+          <p>Vida: {{ carta.life }}</p>
+          <p>Lore: {{ carta.lore_point }}</p>
+          <p>Número: {{ carta.card_number }}</p>
+        </div>
       </div>
     </div>
   </section>
