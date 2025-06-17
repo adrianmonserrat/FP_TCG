@@ -20,7 +20,7 @@
   <section class="mt-8">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       <div *ngFor="let carta of cartas" class="bg-white rounded-lg shadow-md p-4">
-        <img [src]="carta.img_card" alt="{{ carta.name }}" class="rounded-lg mb-2">
+      <img [src]="'/cards/' + carta.img_card" alt="{{ carta.name }}" class="rounded-lg mb-2">
         <h2 class="text-xl font-semibold mb-2">{{ carta.name }}</h2>
         <p class="text-gray-700">Coste: {{ carta.cost }}</p>
         <p class="text-gray-700">Ataque: {{ carta.attack }}</p>

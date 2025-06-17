@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CardsService {
 
-  private apiUrl = 'http://localhost:8060/api/cartas'; // Reemplaza con la URL de tu API
+  private apiUrl = 'http://localhost:8060/cards/'; // Reemplaza con la URL de tu API
   private http = inject(HttpClient); // Inyecta HttpClient
 
   getCards(): Observable<any[]> {
