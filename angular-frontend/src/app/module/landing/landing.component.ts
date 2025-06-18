@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from '../assets/navbar/navbar.component'; // Asegúrate de que la ruta sea correcta
-import { FooterComponent } from '../assets/footer/footer.component';
+import { NavbarComponent } from '../components/navbar/navbar.component'; // Asegúrate de que la ruta sea correcta
+import { FooterComponent } from '../components/footer/footer.component';
 
 @Component({
   selector: 'app-landing',

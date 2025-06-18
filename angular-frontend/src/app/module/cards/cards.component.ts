@@ -2,12 +2,13 @@ import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CardsService } from './cards.service';
 import { HttpClient } from '@angular/common/http';
-import { NavbarComponent } from '../assets/navbar/navbar.component';
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { FooterComponent } from "../components/footer/footer.component";
 
 @Component({
   selector: 'app-cards',
   standalone: true,
-  imports: [CommonModule, NavbarComponent],
+  imports: [CommonModule, NavbarComponent, FooterComponent],
   templateUrl: './cards.component.html',
 })
 export class CardsComponent implements OnInit {

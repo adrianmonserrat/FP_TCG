@@ -1,48 +1,67 @@
 <app-navbar></app-navbar>
-<div class="container mx-auto py-8">
-  <div class="flex justify-between items-center mb-4">
-    <h1 class="text-2xl text-white bg-violet-800">Lista de Cartas</h1>
-    <div>
-      <button (click)="setSortBy('card_number')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-        Número
-      </button>
-      <button (click)="setSortBy('life')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-        Vida
-      </button>
-      <button (click)="setSortBy('lore_point')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
-        Lore
-      </button>
-      <button (click)="setSortBy('attack')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Ataque
-      </button>
-    </div>
-  </div>
-  <section class="mt-8">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      <div 
-        *ngFor="let carta of cartas"
-        class="relative bg-white rounded-lg shadow-md p-4 cursor-pointer"
-        (click)="carta.selected = !carta.selected"
-      >
-        <img 
-          [src]="'assets/lorcana_cards/' + carta.img" 
-          [alt]="carta.name" 
-          class="rounded-lg mb-2 w-full h-80 object-contain transition-opacity duration-300"
-          [ngClass]="{ 'opacity-40': carta.selected }"
-        />
-        <!-- Capa opaca con los datos -->
-        <div 
-          *ngIf="carta.selected"
-          class="absolute inset-0 bg-black bg-opacity-80 flex flex-col justify-center items-center text-white rounded-lg transition-opacity duration-300"
-        >
-          <h2 class="text-xl font-semibold mb-2">{{ carta.name }}</h2>
-          <p>Coste: {{ carta.cost }}</p>
-          <p>Ataque: {{ carta.attack }}</p>
-          <p>Vida: {{ carta.life }}</p>
-          <p>Lore: {{ carta.lore_point }}</p>
-          <p>Número: {{ carta.card_number }}</p>
-        </div>
+<div class="relative min-h-screen flex flex-col bg-jafar bg-cover bg-center">
+  <!-- Capa opaca de fondo -->
+  <div class="absolute inset-0 bg-black opacity-80 pointer-events-none z-0"></div>
+  <div class="relative z-10 container mx-auto py-8 flex-1">
+    <div class="flex justify-between items-center mb-4">
+      <h1 class="bg-blue-500 text-white font-bold py-2 px-4 rounded mr-2">Cartas de Lorcana</h1>
+      <div>
+        <button (click)="setSortBy('card_number')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+          Número
+        </button>
+        <button (click)="setSortBy('life')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+          Vida
+        </button>
+        <button (click)="setSortBy('lore_point')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">
+          Lore
+        </button>
+        <button (click)="setSortBy('attack')" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Ataque
+        </button>
       </div>
     </div>
-  </section>
+    <section class="mt-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div 
+          *ngFor="let carta of cartas"
+          class="relative bg-white rounded-lg shadow-md cursor-pointer h-[32rem]"
+          (click)="carta.selected = !carta.selected"
+        >
+          <img 
+            [src]="'assets/lorcana_cards/' + carta.img_card"
+            [alt]="carta.name"
+            class="rounded-lg w-full h-full object-cover transition-opacity duration-300"
+            [ngClass]="{ 'opacity-40': carta.selected }"
+          />
+
+          <div 
+            *ngIf="carta.selected"
+            class="absolute inset-0 bg-black bg-opacity-80 flex flex-col justify-center items-center text-white rounded-lg transition-opacity duration-300"
+          >
+            <h2 class="text-xl font-semibold mb-2">{{ carta.name }}</h2>
+            <div class="grid grid-cols-2 gap-4 w-full max-w-xs mb-4">
+              <div class="text-right pr-2">
+                <p *ngIf="carta.cost !== 0">Coste:</p>
+                <p *ngIf="carta.attack !== 0">Ataque:</p>
+                <p *ngIf="carta.life !== 0">Vida:</p>
+                <p *ngIf="carta.lore_point !== 0">Lore:</p>
+                <p *ngIf="carta.card_number !== 0">Número:</p>
+              </div>
+              <div class="text-left pl-2">
+                <p *ngIf="carta.cost !== 0">{{ carta.cost }}</p>
+                <p *ngIf="carta.attack !== 0">{{ carta.attack }}</p>
+                <p *ngIf="carta.life !== 0">{{ carta.life }}</p>
+                <p *ngIf="carta.lore_point !== 0">{{ carta.lore_point }}</p>
+                <p *ngIf="carta.card_number !== 0">{{ carta.card_number }}</p>
+              </div>
+            </div>
+            <div class="w-full max-w-xs text-center mb-2">
+              <p class="break-words px-2">{{ carta.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer class="mt-auto relative z-10"></app-footer>
 </div>
