@@ -87,4 +87,7 @@ class UserController extends AbstractController
 
         return $this->json(['message' => 'User deleted']);
     }
+
+    //#[Route('/{id}/cards', name: 'user_cards', methods: ['GET'])]  
+
 }
