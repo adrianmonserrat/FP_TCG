@@ -16,6 +16,11 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        cards:
+            pattern: ^/cards
+            stateless: true
+            security: false
+
         # Firewall principal para la API
         main:
             lazy: true
@@ -36,9 +41,9 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         # Permite acceso público a login, registro y consulta de cartas
+        - { path: ^/cards, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/cards, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/coleccion, roles: IS_AUTHENTICATED_FULLY }
         # El resto requiere autenticación
         - { path: ^/, roles: IS_AUTHENTICATED_FULLY }

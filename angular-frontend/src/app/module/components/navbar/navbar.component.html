@@ -2,10 +2,17 @@
     <div class="container mx-auto flex justify-between items-center ">
       <a routerLink="/" class="text-gold text-gray-300 text-2xl font-bold">Lorcana</a>
       <ul id="navbar" class="flex space-x-6 ">
-        <li><button routerLink="/cards" class="text-white hover:text-gold">Cartas</button></li>       
-        <li><a href="/coleccion" class="text-white hover:text-gold">Colección</a></li>
-        <li><a href="https://preview--lorcana-battle-tracker.lovable.app/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gold">Victorias/Derrotas</a></li>
-        <li><a href="login" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gold"> Iniciar sesion</a></li>
+        <li><button routerLink="/cards" class="text-white hover:text-gold">Cartas</button></li>
+        <li *ngIf="isLoggedIn()"><a routerLink="/coleccion" class="text-white hover:text-gold">Colección</a></li>
+        <li *ngIf="isLoggedIn()">
+          <a href="https://preview--lorcana-battle-tracker.lovable.app/" target="_blank" rel="noopener noreferrer" class="text-white hover:text-gold">Victorias/Derrotas</a>
+        </li>
+        <li *ngIf="!isLoggedIn()">
+          <a routerLink="/login" class="text-white hover:text-gold">Iniciar sesión</a>
+        </li>
+        <li *ngIf="isLoggedIn()">
+          <a href="/" (click)="logout()" class="text-white hover:text-gold">Cerrar sesión</a>
+        </li>
       </ul>
     </div>
   </nav>

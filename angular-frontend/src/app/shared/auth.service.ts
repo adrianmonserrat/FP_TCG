@@ -7,19 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8060';  // Sin barra final
+  private apiUrl = 'http://localhost:8060';
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(`${this.apiUrl}/login`, { username, password });
+  login(nickname: string, password: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/api/login`, { nickname: nickname, password }, { withCredentials: true });
   }
 
   checkAuth(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/check`);
+    return this.http.get(`${this.apiUrl}/api/check`, { withCredentials: true });
   }
 
   logout(): Observable<any> {
-    return this.http.post(`${this.apiUrl}/logout`, {});
+    return this.http.post(`${this.apiUrl}/api/logout`, {}, { withCredentials: true });
   }
 }
