@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8060/';  // Asegúrate de que la URL es correcta
+  private apiUrl = 'http://localhost:8060';  // Sin barra final
 
   constructor(private http: HttpClient) {}
 
@@ -16,10 +16,10 @@ export class AuthService {
   }
 
   checkAuth(): Observable<any> {
-    return this.http.get('${this.apiUrl}/check');
+    return this.http.get(`${this.apiUrl}/check`);
   }
 
   logout(): Observable<any> {
-    return this.http.post('${this.apiUrl}/logout', {});
+    return this.http.post(`${this.apiUrl}/logout`, {});
   }
 }

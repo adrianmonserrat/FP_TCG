@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 #[Route('/users')] // Base route for the UserController
 class UserController extends AbstractController
@@ -88,6 +89,41 @@ class UserController extends AbstractController
         return $this->json(['message' => 'User deleted']);
     }
 
-    //#[Route('/{id}/cards', name: 'user_cards', methods: ['GET'])]  
+    #[Route('/login', name: 'user_login', methods: ['POST'])]
+    public function login(
+        Request $request,
+        UserRepository $userRepository,
+        UserPasswordHasherInterface $passwordHasher
+    ): JsonResponse {
+        $data = json_decode($request->getContent(), true);
+
+        $nickname = $data['nickname'] ?? '';
+        $password = $data['password'] ?? '';
+
+        // Buscar usuario por nickname
+        $user = $userRepository->findOneBy(['nickname' => $nickname]);
+        if (!$user) {
+            return $this->json(['message' => 'Usuario no encontrado'], 401);
+        }
+
+        // Verificar contraseña
+        if (!$passwordHasher->isPasswordValid($user, $password)) {
+            return $this->json(['message' => 'Contraseña incorrecta'], 401);
+        }
+
+        // Puedes guardar el usuario en sesión si quieres autenticación por sesión:
+        // $session = $request->getSession();
+        // $session->set('user_id', $user->getId());
+
+        // O simplemente devolver los datos del usuario:
+        return $this->json([
+            'id' => $user->getId(),
+            'name' => $user->getName(),
+            'nickname' => $user->getNickname(),
+            'email' => $user->getEmail(),
+            'role' => $user->getRole(),
+            // Puedes añadir un token aquí si implementas JWT
+        ]);
+    }
 
 }
